@@ -19,51 +19,84 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+*.pyc
 
 # Virtual Environment
 venv/
 env/
 ENV/
 .venv
+.conda/
 
 # Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb_checkpoints/
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+*.ipynb_checkpoints
 
-# PyTorch
+# PyTorch Models (keep folder structure, ignore model files)
 *.pt
 *.pth
 *.ckpt
+*.pkl
 models/*.pt
 models/*.pth
+models/*.ckpt
 
-# Data
+# HuggingFace Cache (these can be huge!)
+.cache/
+transformers_cache/
+**/transformers_cache/
+~/.cache/huggingface/
+
+# Dataset Cache (don't commit downloaded datasets)
 data/
 datasets/
 *.csv
-*.json
-*.txt
+*.tsv
+!requirements.txt
+!README.md
+!*.md
 
-# IDE
+# IDE & Editors
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+.spyproject/
+.ropeproject/
 
-# OS
+# OS Files
 .DS_Store
 Thumbs.db
+desktop.ini
+*.lnk
 
-# Logs
+# Logs & Temp Files
 *.log
 logs/
+*.tmp
+*.temp
 
-# Cache
+# Cache Directories
 .cache/
 __pycache__/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# Outputs (optional - comment out if you want to commit visualizations)
+# Outputs (KEEP these commented so visualizations ARE committed)
+# These should be committed to show your results!
 # outputs/*.png
 # outputs/*.jpg
+
+# Ignore large training artifacts but keep small outputs
+wandb/
+mlruns/
+checkpoints/
+*.checkpoint
+
+# Git-specific (usually already ignored by git)
+.git/
+*.orig
